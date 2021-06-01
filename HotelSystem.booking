@@ -1,6 +1,6 @@
 system DangleterreV2 {
 	
-	external suppliance(para)
+	external supplier(para)
 	
 	resource Room {
 		name: string
