@@ -1,0 +1,46 @@
+system DangleterreV2 {
+	
+	external suppliance(para)
+	
+	resource Room {
+		name: string
+		capacity : int
+		normalRoom : bool
+		bookedFrom: int
+		bookedUntil: int
+		has many plan : RoomSchedule
+	}
+	
+	resource Suite extends Room {
+		name: string
+	}
+	
+	booking RoomBook {
+		name: string
+		has one Room : Room
+		has one plan : RoomSchedule
+		has one cus : NCustomer
+	}
+	
+	customer NCustomer{
+		name : string
+		vip : bool
+		phoneNumber: int
+		points : int
+	}
+	
+	entity Spa {
+		name:string 
+	}
+	
+	customer VipCustomer extends NCustomer {
+		constraint (vip)
+		constraint (points < 20)
+	} 
+	
+	schedule RoomSchedule {
+		name : string
+		start : int
+		end : int
+	}
+}
